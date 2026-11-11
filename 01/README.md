@@ -7,22 +7,22 @@
 
 Sekumpulan komputer independen yang terhubung melalui jaringan sebagai satu sistem tunggal yang koheren (Tanenbaum & van Steen, 2007).
 
-    * Fokus: Pembagian beban kerja (workload distribution).
+* Fokus: Pembagian beban kerja (workload distribution).
 
-    * Karakteristik: Transparansi lokasi/akses, skalabilitas, fault-tolerance, kinerja tingga, dan heterogenitas.
+* Karakteristik: Transparansi lokasi/akses, skalabilitas, fault-tolerance, kinerja tingga, dan heterogenitas.
 
 ### ***Sistem Terdesentralisasi***
 
 Sistem tanpa titik kontrol tunggal (no single point of failure). Pengambilan keputusan dilakukan secara kolektif melalui mekanisme konsensus.
+    
+* Fokus: Pembagian kontrol dan tata kelola (control distribution).
 
-    * Fokus: Pembagian kontrol dan tata kelola (control distribution).
-
-    ```
-    +---------------------------------------------------------------+
-    | Centralized       | Distributed           | Decentralized     |
-    | 1 Titik Kontrol   | Pembagian Beban Kerja | Pembagian Kontrol |
-    +---------------------------------------------------------------+
-    ```
+```
++---------------------------------------------------------------+
+| Centralized       | Distributed           | Decentralized     |
+| 1 Titik Kontrol   | Pembagian Beban Kerja | Pembagian Kontrol |
++---------------------------------------------------------------+
+```
 
 
 ## 2. Visualisasi Arsitektur Sistem
