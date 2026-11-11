@@ -1,4 +1,4 @@
-# Rangkuman: Pengenalan Sistem Terdistribusi dan Terdesentralisasi
+# Rangkuman MATERI-1: Pengenalan Sistem Terdistribusi dan Terdesentralisasi
 
 
 ## 1. Konsep Dasar & Pengertian
