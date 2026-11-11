@@ -137,6 +137,10 @@ Karena tidka ada shared memory antar-node yang terpisah secara fisik, IPC khusus
 
 ## 5. Jawaban Diskusi
 
+### 1. Apakah GraphQL merupakan contoh dari RPC?
+
+**Jawaban**:
+
 **Materi Minggu-2**: Proses dan Komunikasi Antar Proses pada Sistem Terdistribusi
 
 **Jenis AI**: Menggunakan Google Search saja tapi yang saya pakai jawaban AI mode.
@@ -145,7 +149,7 @@ Karena tidka ada shared memory antar-node yang terpisah secara fisik, IPC khusus
 
 **Ringkasan saya untuk penyesuaian**:
 
-### 1. GraphQL tidak secara langsung bisa disebut RPC, karena pada dasarnya kueri dengan spesifikasi runtime untuk API berbasis HTTP. Meskipun client bisa memicu mutasi, arsitektur *GraphQL* berfokus pada manipulasi sumber daya dan skema data berbasis grafik (graph based data fecthing), bukan mengeksekusi prosedur terdistribusi seperti *gRPC* atau *XML-RPC* contohnya.
+GraphQL tidak secara langsung bisa disebut RPC, karena pada dasarnya kueri dengan spesifikasi runtime untuk API berbasis HTTP. Meskipun client bisa memicu mutasi, arsitektur *GraphQL* berfokus pada manipulasi sumber daya dan skema data berbasis grafik (graph based data fecthing), bukan mengeksekusi prosedur terdistribusi seperti *gRPC* atau *XML-RPC* contohnya.
 
 **Materi Hasil AI**:
 Tidak, GraphQL bukan contoh dari RPC (Remote Procedure Call). GraphQL dan RPC adalah dua gaya arsitektur API yang berbeda.
@@ -160,6 +164,10 @@ Meskipun keduanya sering digunakan sebagai alternatif dari REST, GraphQL berpusa
 
 Apakah Anda ingin tahu lebih detail mengenai perbandingan performa antara GraphQL dan gRPC (RPC), atau kapan waktu terbaik menggunakan masing-masing arsitektur tersebut?
 
-### 2. REST dan RPC adalah arsitektur yang berlawanan, REST (CRUD klasik, dimana URI merepresentasikan objek data, contoh: http:<website>/user=1) *bukan* merupakan contoh RPC (yg fokus pada prosedur/aksi contoh: getUser(id))
+### 2. Apakah REST merupakan contoh dari RPC?
 
-### 3. Telemetri bisa etis jika implementasi, transparansi dan jenis data yang dikumpulkan etis. Karena penting juga pada sistem terdistribusi untuk melacak error, performa, menjaga keandalan sistem supaya layanan optimal, mematuhi regulasi negara (GDPR), sistem anonimasi, dsb. Telemetri menjadi sebuah *masalah* adalah ketika pengumpulan data dilakukan tanpa izin pengguna (consent), tidak memberi opsi untuk menolak (opt-out), dan juga untuk tujuan yang merugikan.
+**Jawaban**: REST dan RPC adalah arsitektur yang berlawanan, REST (CRUD klasik, dimana URI merepresentasikan objek data, contoh: http:<website>/user=1) *bukan* merupakan contoh RPC (yg fokus pada prosedur/aksi contoh: getUser(id))
+
+### 3. Apakah Telemetry merupakan solusi etis?
+
+**Jawaba**: Telemetri bisa etis jika implementasi, transparansi dan jenis data yang dikumpulkan etis. Karena penting juga pada sistem terdistribusi untuk melacak error, performa, menjaga keandalan sistem supaya layanan optimal, mematuhi regulasi negara (GDPR), sistem anonimasi, dsb. Telemetri menjadi sebuah *masalah* adalah ketika pengumpulan data dilakukan tanpa izin pengguna (consent), tidak memberi opsi untuk menolak (opt-out), dan juga untuk tujuan yang merugikan.
