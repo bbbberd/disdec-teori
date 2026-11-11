@@ -152,19 +152,18 @@ Karena tidka ada shared memory antar-node yang terpisah secara fisik, IPC khusus
 GraphQL tidak secara langsung bisa disebut RPC, karena pada dasarnya kueri dengan spesifikasi runtime untuk API berbasis HTTP. Meskipun client bisa memicu mutasi, arsitektur *GraphQL* berfokus pada manipulasi sumber daya dan skema data berbasis grafik (graph based data fecthing), bukan mengeksekusi prosedur terdistribusi seperti *gRPC* atau *XML-RPC* contohnya.
 
 **Materi Hasil AI**:
-```
-Tidak, GraphQL bukan contoh dari RPC (Remote Procedure Call). GraphQL dan RPC adalah dua gaya arsitektur API yang berbeda.
+
+> Tidak, GraphQL bukan contoh dari RPC (Remote Procedure Call). GraphQL dan RPC adalah dua gaya arsitektur API yang berbeda.
 Berikut perbedaan utamanya: [https://www.indowebsite.co.id/blog/rpc-adalah](https://www.indowebsite.co.id/blog/rpc-adalah) 
-
-- GraphQL adalah sebuah bahasa kueri (query language) dan runtime API yang berfokus pada data (menggunakan grafik data). Klien bebas menentukan bidang data (fields) apa saja yang ingin mereka ambil dalam satu kali permintaan, tanpa terpaku pada struktur prosedur di server.
+> 
+> - GraphQL adalah sebuah bahasa kueri (query language) dan runtime API yang berfokus pada data (menggunakan grafik data). Klien bebas menentukan bidang data (fields) apa saja yang ingin mereka ambil dalam satu kali permintaan, tanpa terpaku pada struktur prosedur di server.
 [https://www.youtube.com/watch?v=GsGopNsOKEU&t=517](https://www.youtube.com/watch?v=GsGopNsOKEU&t=517)
-
-- RPC adalah gaya arsitektur API di mana klien memanggil prosedur, fungsi, atau aksi tertentu di server jarak jauh secara langsung (seolah-olah menjalankan fungsi lokal), seperti pada JSON-RPC, XML-RPC, atau gRPC. [https://apisyouwonthate.com/blog/understanding-rpc-rest-and-graphql/](https://apisyouwonthate.com/blog/understanding-rpc-rest-and-graphql/)
-
-Meskipun keduanya sering digunakan sebagai alternatif dari REST, GraphQL berpusat pada data graph, sedangkan RPC berpusat pada eksekusi aksi/fungsi. [https://www.youtube.com/watch?v=Wet__R9-6jQ&t=12](https://www.youtube.com/watch?v=Wet__R9-6jQ&t=12) 
-
-Apakah Anda ingin tahu lebih detail mengenai perbandingan performa antara GraphQL dan gRPC (RPC), atau kapan waktu terbaik menggunakan masing-masing arsitektur tersebut?
-```
+> 
+> - RPC adalah gaya arsitektur API di mana klien memanggil prosedur, fungsi, atau aksi tertentu di server jarak jauh secara langsung (seolah-olah menjalankan fungsi lokal), seperti pada JSON-RPC, XML-RPC, atau gRPC. [https://apisyouwonthate.com/blog/understanding-rpc-rest-and-graphql/](https://apisyouwonthate.com/blog/understanding-rpc-rest-and-graphql/)
+> 
+> Meskipun keduanya sering digunakan sebagai alternatif dari REST, GraphQL berpusat pada data graph, sedangkan RPC berpusat pada eksekusi aksi/fungsi. [https://www.youtube.com/watch?v=Wet__R9-6jQ&t=12](https://www.youtube.com/watch?v=Wet__R9-6jQ&t=12) 
+> 
+> Apakah Anda ingin tahu lebih detail mengenai perbandingan performa antara GraphQL dan gRPC (RPC), atau kapan waktu terbaik menggunakan masing-masing arsitektur tersebut?
 
 ### 2. Apakah REST merupakan contoh dari RPC?
 
