@@ -112,9 +112,9 @@ Sistem tanpa titik kontrol tunggal (no single point of failure). Pengambilan kep
 
 Pada distribusi data store, sistem tidak mungkin memenuhi ketiga properti secara bersamaan saat terjadi jaringan terputus (partition tolerance):
 
-    * ***Consistency (C)***: Setiap operasi baca mengembalikan data penulisan terbaru atau error.
-    * ***Availability (A)***: Setiap request non-failing node mendapat respons non-error (meski bukan data terbaru).
-    * ***Partition Tolerance (P)***: Sistem tetap berfungsi meski komunikasi antar-node terputus.
+* ***Consistency (C)***: Setiap operasi baca mengembalikan data penulisan terbaru atau error.
+* ***Availability (A)***: Setiap request non-failing node mendapat respons non-error (meski bukan data terbaru).
+* ***Partition Tolerance (P)***: Sistem tetap berfungsi meski komunikasi antar-node terputus.
 
 ```
                   .
@@ -134,25 +134,27 @@ Pada distribusi data store, sistem tidak mungkin memenuhi ketiga properti secara
 ```
 
 ### Trade-off saat terjadi partition (p):
-    * ***AP (Availability + Partition Tolerance)***: Mengorbankan konsistensi demi ketersediaan (Data lama mungkin terbaca). Contoh: MongoDB (opsi read preference).
-    * ***CP (Consistency + Partition Tolerance)***: Mengorbankan ketersediaan demi konsistensi data (Request ditolak jika data belum konsisten). Contoh: Apache Cassandra.
+
+* ***AP (Availability + Partition Tolerance)***: Mengorbankan konsistensi demi ketersediaan (Data lama mungkin terbaca). Contoh: MongoDB (opsi read preference).
+
+* ***CP (Consistency + Partition Tolerance)***: Mengorbankan ketersediaan demi konsistensi data (Request ditolak jika data belum konsisten). Contoh: Apache Cassandra.
 
 ## 4. Konsistensi Data & Tantangan
 1. Model Konsistensi:
-    * *Strong Consistency*: Data selalu sama seketika di semua node (Contoh: Sistem Perbankan).
-    * *Eventual Consistency*: Data akan konsisten secara bertahap seiring waktu (Contoh: Feeds Media Sosial).
+    * ***Strong Consistency***: Data selalu sama seketika di semua node (Contoh: Sistem Perbankan).
+    * ***Eventual Consistency***: Data akan konsisten secara bertahap seiring waktu (Contoh: Feeds Media Sosial).
 
 2. Tantangan Sistem:
-    * *Latency & Throughput*: Waktu proses vs volume data.
-    * *Keamanan*: Serangan seperti *DDoS* dan *Sybil Attack* (pembuatan ribuan identitas palsu untuk mendominasi voting/node).
-    * *Kompleksitas & Governance*: Manajemen node dan tata kelola terdesentralisasi.
+    * ***Latency & Throughput***: Waktu proses vs volume data.
+    * ***Keamanan***: Serangan seperti *DDoS* dan *Sybil Attack* (pembuatan ribuan identitas palsu untuk mendominasi voting/node).
+    * ***Kompleksitas & Governance***: Manajemen node dan tata kelola terdesentralisasi.
 
 ## 5. Studi Kasus & Tren Masa Depan
 
 1. Studi kasus:
 
-    * *Terdistribusi*: Google File System (GFS), HDFS, Apache Kafka, Netflix, YouTube, TikTok.
-    * *Terdesentralisasi*: Blockchain (Bitcoin, Ethereum), DNS, BitTorrent.
+    * ***Terdistribusi***: Google File System (GFS), HDFS, Apache Kafka, Netflix, YouTube, TikTok.
+    * ***Terdesentralisasi***: Blockchain (Bitcoin, Ethereum), DNS, BitTorrent.
 
 2. Tren Masa Depan:
     * Cloud-Native (Docker, Kubernetes)
