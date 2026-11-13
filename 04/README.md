@@ -132,13 +132,9 @@ $ sudo nano /etc/wsl.conf
 
 ![Gambar 1](images/01-cek-systemd.png)
 
-**Gambar 1. Cek systemd akfit atau belum**
-
 * **Ubah systemd ke TRUE**
 
 ![Gambar 1](images/02-systemd-true.png)
-
-**Gambar 2. Ubah systemd ke TRUE**
 
 * **Bersihkan Docker Untuk Install Ulang**
 
@@ -146,9 +142,7 @@ $ sudo nano /etc/wsl.conf
 $ sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc docker-buildx podman-docker containerd runc | cut -f1)
 ```
 
-![Gambar 3](images/03-clean-remove)
-
-**Gambar 3. Pembersihan**
+![Gambar 3](images/03-clean-remove.png)
 
 * **Buat dan Cek Sertifikat**
 
@@ -161,9 +155,7 @@ $ sudo chmod a+r /etc/apt/keyrings/docker.asc
 $ ls /etc/apt/keyrings/
 ```
 
-![Gambar 4](images/04-sertifikat)
-
-**Gambar 4. Membuat sertifikat**
+![Gambar 4](images/04-sertifikat.png)
 
 * **Menyiapkan Target Sumber**
 
@@ -178,9 +170,7 @@ $ sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
 > EOF
 ```
 
-![Gambar 5](images/05-repo-sources)
-
-**Gambar 5. Memberi target sumber**
+![Gambar 5](images/05-repo-sources.png)
 
 * **Menginstal Docker dan Docker-Compose**
 
@@ -189,9 +179,7 @@ $ sudo apt update
 $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-![Gambar 6](images/06-install-docker)
-
-**Gambar 6. Menginstal Docker dan Docker-Compose**
+![Gambar 6](images/06-install-docker.png)
 
 * **Mengaktifkan Docker**
 
@@ -199,9 +187,7 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin do
 $ sudo systemctl status docker
 ```
 
-![Gambar 7](images/07-aktifkan)
-
-**Gambar 7. Mengaktifkan Docker**
+![Gambar 7](images/07-aktifkan.png)
 
 * **Test Docker**
 
@@ -209,9 +195,7 @@ $ sudo systemctl status docker
 $ sudo docker run hello-world
 ```
 
-![Gambar 8](images/08-test-dummy)
-
-**Gambar 8. Melakukan Tes Hello World Docker**
+![Gambar 8](images/08-test-dummy.png)
 
 #### c. PostgreSQL 18
 
