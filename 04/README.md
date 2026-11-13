@@ -300,12 +300,51 @@ Data `21` dan `23` muncul secara otomatis di *replica*, maka studi kasus konfigu
 
 ### 2. Apache Ignite 3 Master-Master
 
-#### a. Docker Compose
+**Menyiapkan Konfigurasi**
 
-#### b. Apache Ignite 3
+Seperti sebelumnya penulis mengedit `env.sh` karena bapaknya menggunakan docker compose versi lama. Lalu menjalankan `source`, `dcu` dan `dps`:
 
-#### c. SQL
+![Gambar 18](images/18-dcu.png)
 
+![Gambar 19](images/19-dps.png)
+
+**Apache Ignite 3**
+
+Inisialisasi klaster apache ignite cli menggunakan `dcli`:
+
+![Gambar 20](images/20-dcli.png)
+
+Menginisialisasi klaster dan menentukan metastorage group:
+
+![Gambar 21](images/21-cluster.png)
+
+**SQL**
+
+Melakukan opsi mount direktori SQL:
+
+![Gambar 22](images/22-sql.png)
+
+Masuk ke mode *SQL* dan memastikan tabel terbentuk:
+
+![Gambar 23](images/23-tabel.png)
+
+Memasukan sisa berkas *SQL* yang belum:
+
+![Gambar 24](images/24-berkas.png)
+
+**Pembuktian Replikasi Master-Master**
+
+Melakukan query di setiap node master:
+
+![Gambar 25](images/25-node1.png)
+
+![Gambar 26](images/26-node2.png)
+
+![Gambar 27](images/27-node3.png)
+
+Mematikan klaster:
+
+![Gambar 28](images/28-clear.png)
 
 ## 8. Jawaban Pertanyaan Diskusi
 
