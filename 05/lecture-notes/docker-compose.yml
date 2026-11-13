@@ -1,0 +1,11 @@
+services:
+  bs_app:
+    build: ./blacksheep_lb
+
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - bs_app
