@@ -126,8 +126,6 @@ Strong Consistency (Linearizable / Sequential)
 
 > *Penulis menganut sumber https://docs.docker.com/engine/install/debian/*
 
-Cek systemd:
-
 ```bash
 $ sudo nano /etc/wsl.conf
 ```
@@ -136,7 +134,7 @@ $ sudo nano /etc/wsl.conf
 
 ![Gambar 1](images/02-systemd-true.png)
 
-Bersihkan docker untuk install ulang:
+**Bersihkan docker untuk install ulang:**
 
 ```bash
 $ sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc docker-buildx podman-docker containerd runc | cut -f1)
@@ -144,7 +142,7 @@ $ sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc do
 
 ![Gambar 3](images/03-clean-remove.png)
 
-Buat dan cek sertifikat:
+**Buat dan cek sertifikat:**
 
 ```bash
 $ sudo apt update
@@ -157,7 +155,7 @@ $ ls /etc/apt/keyrings/
 
 ![Gambar 4](images/04-sertifikat.png)
 
-Menyiapkan target sumber:
+**Menyiapkan target sumber:**
 
 ```bash
 $ sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
@@ -172,7 +170,7 @@ $ sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
 
 ![Gambar 5](images/05-repo-sources.png)
 
-Menginstal docker dan docker-compose:
+**Menginstal docker dan docker-compose:**
 
 ```bash
 $ sudo apt update
@@ -181,7 +179,7 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin do
 
 ![Gambar 6](images/06-install-docker.png)
 
-Mengaktifkan docker:
+**Mengaktifkan docker:**
 
 ```bash
 $ sudo systemctl status docker
@@ -189,7 +187,7 @@ $ sudo systemctl status docker
 
 ![Gambar 7](images/07-aktifkan.png)
 
-Test docker:
+**Test docker:**
 
 ```bash
 $ sudo docker run hello-world
@@ -197,9 +195,9 @@ $ sudo docker run hello-world
 
 ![Gambar 8](images/08-test-dummy.png)
 
-#### c. PostgreSQL 18
+**PostgreSQL 18**
 
-Persiapkan file-file dari modul, lalu edit `env.sh` pada *src-..* dengan nama folder lokasi `env.sh` itu sendiri dan kedua file lain, lalu aktifkan `env.sh`:
+Mengedit `env.sh` pada *src-..* dengan nama folder lokasi `env.sh` dan mengaktifkan `env.sh`:
 
 ```bash
 $ source <Lokasi env>/env.sh
@@ -228,7 +226,7 @@ $ dps
 
 ![Gambar 12](images/12-status.png)
 
-#### d. Streaming Replication
+**Streaming Replication**
 
 Membuktikan bahwa *primary server* aktif melayani operasi tulis (*write*) dan meneruskan data *WAL (Write-Ahead Logging)* ke *replica*, masuk ke kontainer primary:
 
@@ -277,7 +275,7 @@ SELECT pg_is_inrecovery();
 
 > Hasil `t` / true membuktikan server ini bertindak sebagai *standby/replica* yang aman dari konflik tulis langsung)
 
-**Pengujian akhir**
+**Pengujian Akhir**
 
 Mengisi data primary:
 
@@ -295,7 +293,7 @@ Mengecek pada sisi replica:
 SELECT * FROM testrep;
 ```
 
-![Gambar 16](images/16-replika-uji.png)
+![Gambar 17](images/17-replika-uji.png)
 
 > Data `21` dan `23` muncul secara otomatis di *replica*, maka studi kasus konfigurasi PostgreSQL 18 Streaming Replication telah selesai dan terbukti berhasil sepenuhnya
 
