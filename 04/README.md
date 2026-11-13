@@ -205,9 +205,9 @@ $ source <Lokasi env>/env.sh
 
 ![Gambar 9](images/09-env.png)
 
-> *Jika ada error **docker-compose not found* Gunakan perintah docker compose (pakai spasi karena **v2**, bukan tanda hubung docker-compose versi lama pada `env.sh`)
+> *Ada error **docker-compose not found* karena versi **v2** (pakai spasi, bukan tanda hubung docker-compose versi lama pada `env.sh`)
 
-Jalankan perintah `dcu` akan menjalankan `docker compose up`:
+Perintah `dcu` akan menjalankan `docker compose up`:
 
 ```bash
 $ cd <masuk ke folder 3 file itu>
@@ -250,7 +250,7 @@ SELECT client_addr, state, sync_state FROM pg-stat-replication;
 
 ![Gambar 14](images/14-streaming.png)
 
-> Hasil menunjukan `state = streaming` membuktikan studi kasus replikasi utama berjalan.
+Hasil menunjukan `state = streaming` membuktikan studi kasus replikasi utama berjalan.
 
 Membuka terminal terpisah dan *source* kembali `env.sh`:
 
@@ -273,7 +273,7 @@ SELECT pg_is_inrecovery();
 
 ![Gambar 15](images/15-replika.png)
 
-> Hasil `t` / true membuktikan server ini bertindak sebagai *standby/replica* yang aman dari konflik tulis langsung)
+Hasil `t` / true membuktikan server ini bertindak sebagai *standby/replica* yang aman dari konflik tulis langsung)
 
 **Pengujian Akhir**
 
@@ -295,7 +295,7 @@ SELECT * FROM testrep;
 
 ![Gambar 17](images/17-replika-uji.png)
 
-> Data `21` dan `23` muncul secara otomatis di *replica*, maka studi kasus konfigurasi PostgreSQL 18 Streaming Replication telah selesai dan terbukti berhasil sepenuhnya
+Data `21` dan `23` muncul secara otomatis di *replica*, maka studi kasus konfigurasi PostgreSQL 18 Streaming Replication telah selesai dan terbukti berhasil sepenuhnya
 
 
 ### 2. Apache Ignite 3 Master-Master
