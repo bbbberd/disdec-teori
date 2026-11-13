@@ -124,7 +124,7 @@ Strong Consistency (Linearizable / Sequential)
 
 **Install Docker dan Docker-Compose di WSL-Debian**
 
-> notes penulis menganut sumber *https://docs.docker.com/engine/install/debian/*
+> *Penulis menganut sumber https://docs.docker.com/engine/install/debian/*
 
 Cek systemd:
 
@@ -199,7 +199,106 @@ $ sudo docker run hello-world
 
 #### c. PostgreSQL 18
 
+Persiapkan file-file dari modul, lalu edit `env.sh` pada *src-..* dengan nama folder lokasi `env.sh` itu sendiri dan kedua file lain, lalu aktifkan `env.sh`:
+
+```bash
+$ source <Lokasi env>/env.sh
+```
+
+![Gambar 9](images/09-env.png)
+
+> *Jika ada error **docker-compose not found* Gunakan perintah docker compose (pakai spasi karena **v2**, bukan tanda hubung docker-compose versi lama pada `env.sh`)
+
+Jalankan perintah `dcu` akan menjalankan `docker compose up`:
+
+```bash
+$ cd <masuk ke folder 3 file itu>
+$ dcu
+```
+
+![Gambar 10](images/10-dcu.png)
+
+![Gambar 11](images/11-dcu.png)
+
+Periksa status:
+
+```bash
+$ dps
+```
+
+![Gambar 12](images/12-status.png)
+
 #### d. Streaming Replication
+
+Membuktikan bahwa *primary server* aktif melayani operasi tulis (*write*) dan meneruskan data *WAL (Write-Ahead Logging)* ke *replica*, masuk ke kontainer primary:
+
+```bash
+$ dep
+```
+
+Masuk ke antarmuka *psql*:
+
+```bash
+psql -U zuser -d zdb
+```
+
+![Gambar 13](images/13-psql.png)
+
+Menjalankan query untuk memverifikasi bahwa koneksi replikasi aktif dalam status `streaming`:
+
+```SQL
+SELECT client_addr, state, sync_state FROM pg-stat-replication;
+```
+
+![Gambar 14](images/14-streaming.png)
+
+> Hasil menunjukan `state = streaming` membuktikan studi kasus replikasi utama berjalan.
+
+Membuka terminal terpisah dan *source* kembali `env.sh`:
+
+```bash
+$ source env.sh
+$ der
+```
+
+Masuk ke *psql*:
+
+```bash
+psql -U zuser -d zdb
+```
+
+Menjalankan pengecekan mode pemulihan:
+
+```SQL
+SELECT pg_is_inrecovery();
+```
+
+![Gambar 15](images/15-replika.png)
+
+> Hasil `t` / true membuktikan server ini bertindak sebagai *standby/replica* yang aman dari konflik tulis langsung)
+
+**Pengujian akhir**
+
+Mengisi data primary:
+
+```SQL
+CREATE TABLE testrep (first INT, second VARCHAR(15));
+INSERT INTO testrep (first, second) VALUES (21, 'Test pertama');
+INSERT INTO testrep (first, second) VALUES (23, 'Test kedua');
+```
+
+![Gambar 16](images/16-primary-uji.png)
+
+Mengecek pada sisi replica:
+
+```SQL
+SELECT * FROM testrep;
+```
+
+![Gambar 16](images/16-replika-uji.png)
+
+> Data `21` dan `23` muncul secara otomatis di *replica*, maka studi kasus konfigurasi PostgreSQL 18 Streaming Replication telah selesai dan terbukti berhasil sepenuhnya
+
 
 ### 2. Apache Ignite 3 Master-Master
 
