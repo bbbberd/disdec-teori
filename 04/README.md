@@ -122,11 +122,11 @@ Strong Consistency (Linearizable / Sequential)
 
 ### 1. Streaming Replication di PostgreSQL 18
 
-#### a. Install Docker dan Docker-Compose di WSL-Debian
+**Install Docker dan Docker-Compose di WSL-Debian**
 
 > notes penulis menganut sumber *https://docs.docker.com/engine/install/debian/*
 
-**Cek systemd**
+Cek systemd:
 
 ```bash
 $ sudo nano /etc/wsl.conf
@@ -136,7 +136,7 @@ $ sudo nano /etc/wsl.conf
 
 ![Gambar 1](images/02-systemd-true.png)
 
-**Bersihkan Docker Untuk Install Ulang**
+Bersihkan docker untuk install ulang:
 
 ```bash
 $ sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc docker-buildx podman-docker containerd runc | cut -f1)
@@ -144,7 +144,7 @@ $ sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc do
 
 ![Gambar 3](images/03-clean-remove.png)
 
-**Buat dan Cek Sertifikat**
+Buat dan cek sertifikat:
 
 ```bash
 $ sudo apt update
@@ -157,7 +157,7 @@ $ ls /etc/apt/keyrings/
 
 ![Gambar 4](images/04-sertifikat.png)
 
-**Menyiapkan Target Sumber**
+Menyiapkan target sumber:
 
 ```bash
 $ sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
@@ -172,7 +172,7 @@ $ sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
 
 ![Gambar 5](images/05-repo-sources.png)
 
-**Menginstal Docker dan Docker-Compose**
+Menginstal docker dan docker-compose:
 
 ```bash
 $ sudo apt update
@@ -181,7 +181,7 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin do
 
 ![Gambar 6](images/06-install-docker.png)
 
-**Mengaktifkan Docker**
+Mengaktifkan docker:
 
 ```bash
 $ sudo systemctl status docker
@@ -189,7 +189,7 @@ $ sudo systemctl status docker
 
 ![Gambar 7](images/07-aktifkan.png)
 
-**Test Docker**
+Test docker:
 
 ```bash
 $ sudo docker run hello-world
